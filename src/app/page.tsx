@@ -157,7 +157,7 @@ export default function ElChalchaWeb() {
         <div
           className="absolute inset-0 z-0 bg-cover bg-center"
           style={{
-            backgroundImage: "url('/el-chalcha-web/descarga.jpg'), url('/descarga.jpg')",
+            backgroundImage: "url('/el-chalcha-web/public/descarga.jpg'), url('/descarga.jpg')",
             backgroundPosition: 'center',
           }}
         >
