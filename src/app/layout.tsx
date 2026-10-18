@@ -4,6 +4,9 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "El Chalcha® | Las Mejores Empanadas Salteñas",
   description: "Empanadas salteñas artesanales en Córdoba. Receta original desde 1990.",
+  icons: {
+    icon: '/el-chalcha-web/logo.jpg',
+  },
 };
 
 export default function RootLayout({
