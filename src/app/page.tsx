@@ -1,15 +1,3 @@
-¡Entendido! Ya procesé todos los enlaces oficiales de Google Maps para que los botones de **"Cómo llegar"** lleven a la ubicación exacta de cada local.
-
-Además, **saqué el botón de WhatsApp en la sucursal de Recta Martinolli** como pediste. Para lograr que quede estéticamente perfecto sin romper el diseño de la tarjeta (para que el botón de "Llamar" no quede raro al no tener a su compañero al lado), lo que hice fue que en esa sucursal en particular, el botón de "Llamar" ocupa todo el ancho inferior, manteniendo la proporción y el profesionalismo. También, lógicamente, removí a la Recta Martinolli de las opciones del pop-up de WhatsApp general, ya que no reciben pedidos por ahí.
-
-Acá tenés el código final con las direcciones exactas de Google Maps y el arreglo del botón de la Recta.
-
-Para aplicarlo, hacé lo mismo que siempre:
-
-1. Entrá a tu repositorio en GitHub y abrí `src/app/page.tsx`.
-2. Hacé clic en el ícono del **lápiz**.
-3. **Borrá todo** el código y pegá este:
-
 ```tsx
 'use client';
 
