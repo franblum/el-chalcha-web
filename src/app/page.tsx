@@ -102,7 +102,7 @@ const SUCURSALES = [
     rating: '4.4',
     reviews: '43',
     mapUrl: 'https://www.google.com/maps/place/El+Chalcha/@-31.2952584,-64.2993418,17z/data=!3m1!4b1!4m6!3m5!1s0x94329d70d4dbc0fd:0x1e74ecc6e7a46a48!8m2!3d-31.295263!4d-64.2967669!16s%2Fg%2F11kr_346xd?entry=ttu&g_ep=EgoyMDI2MTAxMy4wIKXMDSoASAFQAw%3D%3D',
-    embedUrl: 'https://maps.google.com/maps?width=100%25&height=600&hl=es&q=25%20de%20Mayo%2025+(El%20Chalcha)&t=&z=15&ie=UTF8&iwloc=B&output=embed'
+    embedUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3409.307022164292!2d-64.30163781949598!3d-31.29525832416687!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94329d1b9df30617%3A0xf09ef1f069b7522b!2s25%20de%20Mayo%2025%2C%20X5105GGB%20Villa%20Allende%2C%20C%C3%B3rdoba%2C%20Argentina!5e0!3m2!1ses!2sus!4v1792306311319!5m2!1ses!2sus'
   },
   {
     id: 8,
