@@ -3,12 +3,12 @@
 import React, { useState } from 'react';
 
 const MENU_ITEMS = [
-  { id: 1, name: 'Salteña', description: 'Carne cortada a cuchillo, cebolla, huevo y cebolla de verdeo. Empanadas frescas, elaboradas diariamente, sin conservantes, sin congelar.', isPopular: false },
+  { id: 1, name: 'Salteña', description: 'Carne cortada a cuchillo, cebolla, huevo y cebolla de verdeo. Empanadas frescas, elaboradas diariamente, sin conservantes, sin congelar.', isPopular: true },
   { id: 2, name: 'Pollo', description: 'Pollo desmenuzado, huevo, cebolla, pimiento rojo y arvejas. Empanadas frescas, elaboradas diariamente, sin conservantes, sin congelar.', isPopular: false },
   { id: 3, name: 'Jamón y queso', description: 'Queso mozzarella y cubos de jamón cocido. Empanadas frescas, elaboradas diariamente, sin conservantes, sin congelar.', isPopular: true },
   { id: 4, name: 'Queso, cebolla y morrón', description: 'Queso pategrás, cebolla y morrón salteado. Empanadas frescas, elaboradas diariamente, sin conservantes, sin congelar.', isPopular: true },
   { id: 5, name: 'Criolla dulce', description: 'Carne picada, cebolla, huevo, cebolla de verdeo, pasas de uva y aceitunas verdes. Empanadas frescas, elaboradas diariamente, sin conservantes, sin congelar.', isPopular: true },
-  { id: 6, name: 'Cebolla a los 4 quesos', description: 'Queso reggianito, romanito, parmesano y sardo, cebolla cortada en juliana y huevo. Empanadas frescas, elaboradas diariamente, sin conservantes, sin congelar.', isPopular: true },
+  { id: 6, name: 'Cebolla a los 4 quesos', description: 'Queso reggianito, romanito, parmesano y sardo, cebolla cortada en juliana y huevo. Empanadas frescas, elaboradas diariamente, sin conservantes, sin congelar.', isPopular: false },
   { id: 7, name: 'Árabes', description: 'Carne picada cocida en jugo de limón, tomate triturado y cebolla. Empanadas frescas, elaboradas diariamente, sin conservantes, sin congelar.', isPopular: true },
 ];
 
@@ -24,7 +24,7 @@ const SUCURSALES = [
     rating: '4.6',
     reviews: '743',
     mapUrl: 'https://www.google.com/maps/place/El+Chalchalero/@-31.3567585,-64.2445794,17z/data=!3m1!4b1!4m6!3m5!1s0x9432994b398e9ad9:0x85b1ac27a79a5be!8m2!3d-31.3567631!4d-64.2420045!16s%2Fg%2F11b88ssq03?entry=ttu&g_ep=EgoyMDI2MTAxMy4wIKXMDSoASAFQAw%3D%3D',
-    embedUrl: 'https://maps.google.com/maps?width=100%25&height=600&hl=es&q=Av.%20Rafael%20N%C3%BA%C3%B1ez%205147+(El%20Chalchalero)&t=&z=15&ie=UTF8&iwloc=B&output=embed'
+    embedUrl: '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3407.0837373853888!2d-64.24489662468648!3d-31.356668393366412!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9432994b4b766547%3A0x1b11e8a3245cca1f!2zQXYuIFJhZmFlbCBOw7rDsWV6IDUxNDcsIFg1MDIxIEPDs3Jkb2Jh!5e0!3m2!1ses-419!2sar!4v1792302803545!5m2!1ses-419!2sar" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>'
   },
   {
     id: 2,
