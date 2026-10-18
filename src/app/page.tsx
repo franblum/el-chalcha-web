@@ -3,55 +3,23 @@
 import React, { useState } from 'react';
 
 const MENU_ITEMS = [
-  {
-    id: 1,
-    name: 'Salteña',
-    description: 'Carne cortada a cuchillo, cebolla, huevo y cebolla de verdeo. Empanadas frescas, elaboradas diariamente, sin conservantes, sin congelar.',
-    isPopular: false,
-  },
-  {
-    id: 2,
-    name: 'Pollo',
-    description: 'Pollo desmenuzado, huevo, cebolla, pimiento rojo y arvejas. Empanadas frescas, elaboradas diariamente, sin conservantes, sin congelar.',
-    isPopular: false,
-  },
-  {
-    id: 3,
-    name: 'Jamón y queso',
-    description: 'Queso mozzarella y cubos de jamón cocido. Empanadas frescas, elaboradas diariamente, sin conservantes, sin congelar.',
-    isPopular: true,
-  },
-  {
-    id: 4,
-    name: 'Queso, cebolla y morrón',
-    description: 'Queso pategrás, cebolla y morrón salteado. Empanadas frescas, elaboradas diariamente, sin conservantes, sin congelar.',
-    isPopular: true,
-  },
-  {
-    id: 5,
-    name: 'Criolla dulce',
-    description: 'Carne picada, cebolla, huevo, cebolla de verdeo, pasas de uva y aceitunas verdes. Empanadas frescas, elaboradas diariamente, sin conservantes, sin congelar.',
-    isPopular: true,
-  },
-  {
-    id: 6,
-    name: 'Cebolla a los 4 quesos',
-    description: 'Queso reggianito, romanito, parmesano y sardo, cebolla cortada en juliana y huevo. Empanadas frescas, elaboradas diariamente, sin conservantes, sin congelar.',
-    isPopular: true,
-  },
-  {
-    id: 7,
-    name: 'Árabes',
-    description: 'Carne picada cocida en jugo de limón, tomate triturado y cebolla. Empanadas frescas, elaboradas diariamente, sin conservantes, sin congelar.',
-    isPopular: true,
-  },
+  { id: 1, name: 'Salteña', description: 'Carne cortada a cuchillo, cebolla, huevo y cebolla de verdeo. Empanadas frescas, elaboradas diariamente, sin conservantes, sin congelar.', isPopular: false },
+  { id: 2, name: 'Pollo', description: 'Pollo desmenuzado, huevo, cebolla, pimiento rojo y arvejas. Empanadas frescas, elaboradas diariamente, sin conservantes, sin congelar.', isPopular: false },
+  { id: 3, name: 'Jamón y queso', description: 'Queso mozzarella y cubos de jamón cocido. Empanadas frescas, elaboradas diariamente, sin conservantes, sin congelar.', isPopular: true },
+  { id: 4, name: 'Queso, cebolla y morrón', description: 'Queso pategrás, cebolla y morrón salteado. Empanadas frescas, elaboradas diariamente, sin conservantes, sin congelar.', isPopular: true },
+  { id: 5, name: 'Criolla dulce', description: 'Carne picada, cebolla, huevo, cebolla de verdeo, pasas de uva y aceitunas verdes. Empanadas frescas, elaboradas diariamente, sin conservantes, sin congelar.', isPopular: true },
+  { id: 6, name: 'Cebolla a los 4 quesos', description: 'Queso reggianito, romanito, parmesano y sardo, cebolla cortada en juliana y huevo. Empanadas frescas, elaboradas diariamente, sin conservantes, sin congelar.', isPopular: true },
+  { id: 7, name: 'Árabes', description: 'Carne picada cocida en jugo de limón, tomate triturado y cebolla. Empanadas frescas, elaboradas diariamente, sin conservantes, sin congelar.', isPopular: true },
 ];
 
 const SUCURSALES = [
   {
     id: 1,
-    name: 'El Chalchalero (Casa Central)',
-    address: 'Av. Rafael Núñez 5147, Cerro de las Rosas',
+    name: 'El Chalcha Núñez',
+    address: 'Av. Rafael Núñez N° 5147',
+    neighborhood: 'Cerro de las Rosas',
+    phone: '3515466840',
+    orderUrl: 'https://wa.me/5493515466840?text=Hola!%20Quiero%20hacer%20un%20pedido',
     rating: '4.6',
     reviews: '743',
     mapUrl: 'https://maps.google.com/?q=Av.+Rafael+Nuñez+5147',
@@ -59,8 +27,11 @@ const SUCURSALES = [
   },
   {
     id: 2,
-    name: 'El Chalchalero - Urca',
-    address: 'Menéndez Pidal 4009',
+    name: 'El Chalcha Urca',
+    address: 'Menéndez Pidal N° 4009',
+    neighborhood: 'Urca',
+    phone: '3518057414',
+    orderUrl: 'https://wa.me/5493518057414?text=Hola!%20Quiero%20hacer%20un%20pedido',
     rating: '4.4',
     reviews: '152',
     mapUrl: 'https://maps.google.com/?q=Menendez+Pidal+4009',
@@ -68,8 +39,11 @@ const SUCURSALES = [
   },
   {
     id: 3,
-    name: 'El Chalchalero - Recta Martinolli',
-    address: 'Av. Recta Martinolli 8144',
+    name: 'El Chalcha Recta',
+    address: 'Recta Martinolli N° 8144',
+    neighborhood: 'Argüello',
+    phone: '03543405895',
+    orderUrl: 'https://wa.me/5493543405895?text=Hola!%20Quiero%20hacer%20un%20pedido',
     rating: '4.5',
     reviews: '387',
     mapUrl: 'https://maps.google.com/?q=Av.+Recta+Martinolli+8144',
@@ -77,35 +51,59 @@ const SUCURSALES = [
   },
   {
     id: 4,
-    name: 'El Chalcha Empanadas - B Jardín',
-    address: 'Av. Pablo Ricchieri 3071 Loc A',
+    name: 'El Chalcha Valle Escondido',
+    address: 'Soldado Ramón Ángel Cabrera N° 6870 (local 1)',
+    neighborhood: 'Valle Escondido',
+    phone: '3517612950',
+    orderUrl: 'https://wa.me/5493517612950?text=Hola!%20Quiero%20hacer%20un%20pedido',
+    rating: '4.8',
+    reviews: '23',
+    mapUrl: 'https://maps.google.com/?q=Soldado+Ramon+Angel+Cabrera+6870',
+    embedUrl: 'https://maps.google.com/maps?width=100%25&height=600&hl=es&q=Soldado%20Ramon%20Angel%20Cabrera%206870+(El%20Chalcha%20Valle%20Escondido)&t=&z=15&ie=UTF8&iwloc=B&output=embed'
+  },
+  {
+    id: 5,
+    name: 'El Chalcha Jardín',
+    address: 'Av. Pablo Richieri N° 3071',
+    neighborhood: 'Barrio Jardín',
+    phone: '3517013351',
+    orderUrl: 'https://wa.me/5493517013351?text=Hola!%20Quiero%20hacer%20un%20pedido',
     rating: '4.9',
     reviews: '50',
     mapUrl: 'https://maps.google.com/?q=Av.+Pablo+Ricchieri+3071',
     embedUrl: 'https://maps.google.com/maps?width=100%25&height=600&hl=es&q=Av.%20Pablo%20Ricchieri%203071+(El%20Chalcha%20Empanadas)&t=&z=15&ie=UTF8&iwloc=B&output=embed'
   },
   {
-    id: 5,
-    name: 'El Chalchalero Juniors',
-    address: 'Río Cuarto 597',
+    id: 6,
+    name: 'El Chalcha Juniors',
+    address: 'Río Cuarto N° 597',
+    neighborhood: 'Juniors',
+    phone: '3515128813',
+    orderUrl: 'https://wa.me/5493515128813?text=Hola!%20Quiero%20hacer%20un%20pedido',
     rating: '4.7',
     reviews: '170',
     mapUrl: 'https://maps.google.com/?q=Rio+Cuarto+597',
     embedUrl: 'https://maps.google.com/maps?width=100%25&height=600&hl=es&q=R%C3%ADo%20Cuarto%20597+(El%20Chalchalero%20Juniors)&t=&z=15&ie=UTF8&iwloc=B&output=embed'
   },
   {
-    id: 6,
-    name: 'El Chalcha (Villa Allende)',
-    address: '25 de Mayo 25',
+    id: 7,
+    name: 'El Chalcha Villa Allende',
+    address: '25 de mayo N° 25 (local 5)',
+    neighborhood: 'Villa Allende',
+    phone: '3512300123',
+    orderUrl: 'https://wa.me/5493512300123?text=Hola!%20Quiero%20hacer%20un%20pedido',
     rating: '4.4',
     reviews: '43',
     mapUrl: 'https://maps.google.com/?q=25+de+Mayo+25',
     embedUrl: 'https://maps.google.com/maps?width=100%25&height=600&hl=es&q=25%20de%20Mayo%2025+(El%20Chalcha)&t=&z=15&ie=UTF8&iwloc=B&output=embed'
   },
   {
-    id: 7,
-    name: 'El Chalcha el talar',
-    address: 'Av. Martín Tissera 3253, Mendiolaza',
+    id: 8,
+    name: 'El Chalcha El Talar',
+    address: 'Av. Tissera 3253',
+    neighborhood: 'Mendiolaza',
+    phone: '3543608293',
+    orderUrl: 'https://wa.me/5493543608293?text=Hola!%20Quiero%20hacer%20un%20pedido',
     rating: '5.0',
     reviews: '11',
     mapUrl: 'https://maps.google.com/?q=Av.+Martin+Tissera+3253',
@@ -115,15 +113,56 @@ const SUCURSALES = [
 
 export default function ElChalchaWeb() {
   const [menuAbierto, setMenuAbierto] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
-    <div className="min-h-screen bg-[#F5EDD6] text-[#2C1810] font-sans selection:bg-[#C8860A] selection:text-white">
+    <div className="min-h-screen bg-[#F5EDD6] text-[#2C1810] font-sans selection:bg-[#C8860A] selection:text-white relative">
       <style dangerouslySetInnerHTML={{__html: `
         @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Pacifico&family=Playfair+Display:wght@600;700;800&display=swap');
         .font-pacifico { font-family: 'Pacifico', cursive; }
         .font-playfair { font-family: 'Playfair Display', serif; }
         .font-lato { font-family: 'Lato', sans-serif; }
       `}} />
+
+      {/* POP-UP (MODAL) DE SUCURSALES CON BOTONES DE LLAMAR Y WHATSAPP */}
+      {isModalOpen && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm transition-opacity">
+          <div className="bg-[#F5EDD6] rounded-3xl w-full max-w-2xl overflow-hidden shadow-2xl relative flex flex-col max-h-[90vh]">
+            <button 
+              onClick={() => setIsModalOpen(false)} 
+              className="absolute top-5 right-5 text-[#F5EDD6] hover:text-[#C8860A] transition-colors bg-[#2C1810]/50 hover:bg-[#2C1810] rounded-full p-1 z-10"
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" /></svg>
+            </button>
+            <div className="p-8 bg-[#2C1810] text-[#F5EDD6] text-center border-b-4 border-[#C8860A]">
+              <h3 className="font-playfair text-3xl font-bold mb-2">Elegí tu sucursal</h3>
+              <p className="font-lato text-sm opacity-90">Seleccioná el local más cercano para hacer tu pedido</p>
+            </div>
+            <div className="overflow-y-auto p-4 flex-grow">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                {SUCURSALES.map((sucursal) => (
+                  <div key={sucursal.id} className="flex flex-col p-4 rounded-xl border border-[#C8860A]/20 bg-white hover:border-[#C8860A] hover:shadow-md transition-all group">
+                    <span className="font-playfair font-bold text-lg text-[#C8860A]">{sucursal.name}</span>
+                    <span className="font-lato text-[#2C1810] font-bold mt-1">{sucursal.neighborhood}</span>
+                    <span className="font-lato text-sm text-gray-600 mb-4">{sucursal.address}</span>
+                    
+                    <div className="flex gap-2 mt-auto">
+                        <a href={`tel:${sucursal.phone}`} className="flex-1 bg-red-600 hover:bg-red-700 text-white py-2 rounded-lg font-lato text-sm font-bold flex items-center justify-center gap-1 transition-colors">
+                            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
+                            Llamar
+                        </a>
+                        <a href={sucursal.orderUrl} target="_blank" rel="noreferrer" className="flex-1 bg-[#25D366] hover:bg-[#20b858] text-white py-2 rounded-lg font-lato text-sm font-bold flex items-center justify-center gap-1 transition-colors">
+                            <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 2C6.495 2 2 6.494 2 12.031c0 1.947.556 3.766 1.517 5.309L2.1 22l4.821-1.393c1.472.871 3.208 1.378 5.11 1.378 5.536 0 10.031-4.495 10.031-10.031S17.567 2 12.031 2zm0 18.257c-1.688 0-3.264-.476-4.607-1.303l-.33-.203-2.859.827.839-2.772-.216-.345A8.188 8.188 0 013.774 12.03c0-4.553 3.704-8.257 8.257-8.257 4.553 0 8.257 3.704 8.257 8.257 0 4.553-3.704 8.257-8.257 8.257zm4.526-6.177c-.248-.124-1.468-.724-1.696-.807-.228-.083-.394-.124-.56.124-.166.248-.642.807-.787.973-.145.166-.29.187-.538.063-.248-.124-1.047-.386-1.994-1.23-.737-.658-1.235-1.471-1.38-1.719-.145-.248-.016-.382.108-.505.112-.111.248-.29.373-.435.124-.145.166-.248.248-.414.083-.166.042-.311-.021-.435-.062-.124-.56-1.349-.767-1.847-.202-.486-.407-.42-.56-.427h-.477c-.166 0-.435.062-.663.311-.228.248-.87 0.85-.87 2.073 0 1.223.891 2.405 1.015 2.571.124.166 1.753 2.677 4.246 3.754.593.256 1.056.409 1.417.524.595.189 1.137.162 1.565.098.477-.071 1.468-.6 1.675-1.181.207-.581.207-1.078.145-1.181-.062-.103-.228-.166-.477-.29z" /></svg>
+                            WhatsApp
+                        </a>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* NAVBAR */}
       <nav className="fixed w-full z-50 bg-[#2C1810] text-[#F5EDD6] shadow-xl border-b-4 border-[#C8860A]">
@@ -139,7 +178,12 @@ export default function ElChalchaWeb() {
               <a href="#quienes-somos" className="hover:text-[#C8860A] transition-colors">Quiénes Somos</a>
               <a href="#menu" className="hover:text-[#C8860A] transition-colors">La Carta</a>
               <a href="#donde-estamos" className="hover:text-[#C8860A] transition-colors">Dónde Estamos</a>
-              <a href="#franquicias" className="hover:text-[#C8860A] transition-colors">Franquicias</a>
+              <button 
+                onClick={() => setIsModalOpen(true)}
+                className="bg-[#C8860A] text-white px-6 py-2.5 rounded-full hover:bg-[#a66f08] transition-all shadow-md transform hover:scale-105"
+              >
+                Pedir por WhatsApp
+              </button>
             </div>
             <div className="md:hidden flex items-center">
               <button onClick={() => setMenuAbierto(!menuAbierto)} className="text-[#F5EDD6] hover:text-[#C8860A] focus:outline-none p-2">
@@ -156,7 +200,12 @@ export default function ElChalchaWeb() {
             <a href="#quienes-somos" onClick={() => setMenuAbierto(false)} className="block py-2 hover:text-[#C8860A]">Quiénes Somos</a>
             <a href="#menu" onClick={() => setMenuAbierto(false)} className="block py-2 hover:text-[#C8860A]">La Carta</a>
             <a href="#donde-estamos" onClick={() => setMenuAbierto(false)} className="block py-2 hover:text-[#C8860A]">Dónde Estamos</a>
-            <a href="#franquicias" onClick={() => setMenuAbierto(false)} className="block py-2 hover:text-[#C8860A]">Franquicias</a>
+            <button 
+              onClick={() => { setMenuAbierto(false); setIsModalOpen(true); }}
+              className="block w-full mt-4 text-center bg-[#C8860A] text-white py-3 rounded-full"
+            >
+              Pedir por WhatsApp
+            </button>
           </div>
         )}
       </nav>
@@ -177,11 +226,11 @@ export default function ElChalchaWeb() {
             Receta original desde 1990
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <a href="#menu" className="bg-[#C8860A] text-white px-8 py-3.5 rounded-full font-lato font-bold text-lg hover:bg-[#a66f08] transition-all shadow-xl border-2 border-[#C8860A]">
-              Ver La Carta
-            </a>
+            <button onClick={() => setIsModalOpen(true)} className="bg-[#C8860A] text-white px-8 py-3.5 rounded-full font-lato font-bold text-lg hover:bg-[#a66f08] transition-all shadow-xl border-2 border-[#C8860A]">
+              Hacer un Pedido
+            </button>
             <a href="#donde-estamos" className="bg-transparent text-[#F5EDD6] px-8 py-3.5 rounded-full font-lato font-bold text-lg hover:bg-[#F5EDD6] hover:text-[#2C1810] transition-all border-2 border-[#F5EDD6] shadow-xl">
-              Dónde Estamos
+              Nuestras Sucursales
             </a>
           </div>
         </div>
@@ -256,9 +305,9 @@ export default function ElChalchaWeb() {
                 
                 <div className="p-7 sm:w-1/2 flex flex-col justify-between">
                   <div>
-                    <h3 className="font-playfair text-xl font-bold mb-2 text-[#C8860A]">{sucursal.name}</h3>
+                    <h3 className="font-playfair text-xl font-bold mb-1 text-[#C8860A]">{sucursal.name}</h3>
+                    <p className="font-lato font-bold text-gray-500 mb-2">{sucursal.neighborhood}</p>
                     
-                    {/* Estrellas y Reviews */}
                     <div className="flex items-center gap-2 mb-4 font-lato">
                       <span className="font-bold">{sucursal.rating}</span>
                       <div className="flex text-yellow-400">
@@ -277,14 +326,28 @@ export default function ElChalchaWeb() {
                     </div>
                   </div>
 
-                  <a href={sucursal.mapUrl} target="_blank" rel="noreferrer" className="mt-6 inline-flex items-center justify-center w-full bg-[#2C1810] text-[#F5EDD6] py-2.5 rounded-xl font-bold font-lato hover:bg-[#C8860A] transition-colors">
+                  <a href={sucursal.mapUrl} target="_blank" rel="noreferrer" className="mt-6 inline-flex items-center justify-center w-full bg-gray-100 text-[#2C1810] py-2.5 rounded-xl font-bold font-lato border border-gray-300 hover:bg-gray-200 transition-colors">
                     Cómo llegar <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" /></svg>
                   </a>
                 </div>
 
-                <div className="h-64 sm:h-auto sm:w-1/2 bg-gray-200">
-                  <iframe width="100%" height="100%" frameBorder="0" scrolling="no" marginHeight={0} marginWidth={0} src={sucursal.embedUrl} title={`Mapa de ${sucursal.name}`} className="w-full h-full min-h-[250px] opacity-90 hover:opacity-100 transition-opacity"></iframe>
+                <div className="h-64 sm:h-auto sm:w-1/2 bg-gray-200 flex flex-col">
+                  {/* Mapa Interactivo */}
+                  <iframe width="100%" height="100%" frameBorder="0" scrolling="no" marginHeight={0} marginWidth={0} src={sucursal.embedUrl} title={`Mapa de ${sucursal.name}`} className="w-full flex-grow min-h-[200px] opacity-90 hover:opacity-100 transition-opacity"></iframe>
+                  
+                  {/* Botones de acción debajo del mapa */}
+                  <div className="flex bg-[#2C1810]">
+                    <a href={`tel:${sucursal.phone}`} className="w-1/2 py-3.5 text-center text-white font-bold font-lato hover:bg-red-700 border-r border-white/10 flex items-center justify-center gap-2 transition-colors">
+                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
+                      Llamar
+                    </a>
+                    <a href={sucursal.orderUrl} target="_blank" rel="noreferrer" className="w-1/2 py-3.5 text-center text-white font-bold font-lato hover:bg-[#20b858] flex items-center justify-center gap-2 transition-colors">
+                      <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 2C6.495 2 2 6.494 2 12.031c0 1.947.556 3.766 1.517 5.309L2.1 22l4.821-1.393c1.472.871 3.208 1.378 5.11 1.378 5.536 0 10.031-4.495 10.031-10.031S17.567 2 12.031 2zm0 18.257c-1.688 0-3.264-.476-4.607-1.303l-.33-.203-2.859.827.839-2.772-.216-.345A8.188 8.188 0 013.774 12.03c0-4.553 3.704-8.257 8.257-8.257 4.553 0 8.257 3.704 8.257 8.257 0 4.553-3.704 8.257-8.257 8.257zm4.526-6.177c-.248-.124-1.468-.724-1.696-.807-.228-.083-.394-.124-.56.124-.166.248-.642.807-.787.973-.145.166-.29.187-.538.063-.248-.124-1.047-.386-1.994-1.23-.737-.658-1.235-1.471-1.38-1.719-.145-.248-.016-.382.108-.505.112-.111.248-.29.373-.435.124-.145.166-.248.248-.414.083-.166.042-.311-.021-.435-.062-.124-.56-1.349-.767-1.847-.202-.486-.407-.42-.56-.427h-.477c-.166 0-.435.062-.663.311-.228.248-.87 0.85-.87 2.073 0 1.223.891 2.405 1.015 2.571.124.166 1.753 2.677 4.246 3.754.593.256 1.056.409 1.417.524.595.189 1.137.162 1.565.098.477-.071 1.468-.6 1.675-1.181.207-.581.207-1.078.145-1.181-.062-.103-.228-.166-.477-.29z" /></svg>
+                      Pedir
+                    </a>
+                  </div>
                 </div>
+
               </div>
             ))}
           </div>
@@ -331,12 +394,16 @@ export default function ElChalchaWeb() {
         <p className="text-xs text-[#F5EDD6]/50">&copy; {new Date().getFullYear()} El Chalcha Empanadas. Todos los derechos reservados.</p>
       </footer>
 
-      {/* BOTÓN FLOTANTE WHATSAPP */}
-      <a href="https://wa.me/5493510000000?text=Hola!%20Quiero%20hacer%20un%20pedido%20en%20El%20Chalcha" target="_blank" rel="noreferrer" className="fixed bottom-6 right-6 bg-[#25D366] text-white p-4 rounded-full shadow-2xl hover:scale-110 transition-transform z-50 flex items-center justify-center">
+      {/* BOTÓN FLOTANTE WHATSAPP (Abre Modal) */}
+      <button 
+        onClick={() => setIsModalOpen(true)}
+        className="fixed bottom-6 right-6 bg-[#25D366] text-white p-4 rounded-full shadow-2xl hover:scale-110 transition-transform z-50 flex items-center justify-center" 
+        aria-label="Hacer un pedido"
+      >
         <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
           <path d="M12.031 2C6.495 2 2 6.494 2 12.031c0 1.947.556 3.766 1.517 5.309L2.1 22l4.821-1.393c1.472.871 3.208 1.378 5.11 1.378 5.536 0 10.031-4.495 10.031-10.031S17.567 2 12.031 2zm0 18.257c-1.688 0-3.264-.476-4.607-1.303l-.33-.203-2.859.827.839-2.772-.216-.345A8.188 8.188 0 013.774 12.03c0-4.553 3.704-8.257 8.257-8.257 4.553 0 8.257 3.704 8.257 8.257 0 4.553-3.704 8.257-8.257 8.257zm4.526-6.177c-.248-.124-1.468-.724-1.696-.807-.228-.083-.394-.124-.56.124-.166.248-.642.807-.787.973-.145.166-.29.187-.538.063-.248-.124-1.047-.386-1.994-1.23-.737-.658-1.235-1.471-1.38-1.719-.145-.248-.016-.382.108-.505.112-.111.248-.29.373-.435.124-.145.166-.248.248-.414.083-.166.042-.311-.021-.435-.062-.124-.56-1.349-.767-1.847-.202-.486-.407-.42-.56-.427h-.477c-.166 0-.435.062-.663.311-.228.248-.87 0.85-.87 2.073 0 1.223.891 2.405 1.015 2.571.124.166 1.753 2.677 4.246 3.754.593.256 1.056.409 1.417.524.595.189 1.137.162 1.565.098.477-.071 1.468-.6 1.675-1.181.207-.581.207-1.078.145-1.181-.062-.103-.228-.166-.477-.29z" />
         </svg>
-      </a>
+      </button>
     </div>
   );
 }
