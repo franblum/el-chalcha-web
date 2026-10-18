@@ -24,7 +24,7 @@ const SUCURSALES = [
     rating: '4.6',
     reviews: '743',
     mapUrl: 'https://www.google.com/maps/place/El+Chalchalero/@-31.3567585,-64.2445794,17z/data=!3m1!4b1!4m6!3m5!1s0x9432994b398e9ad9:0x85b1ac27a79a5be!8m2!3d-31.3567631!4d-64.2420045!16s%2Fg%2F11b88ssq03?entry=ttu&g_ep=EgoyMDI2MTAxMy4wIKXMDSoASAFQAw%3D%3D',
-    embedUrl: '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3407.0837373853888!2d-64.24489662468648!3d-31.356668393366412!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9432994b4b766547%3A0x1b11e8a3245cca1f!2zQXYuIFJhZmFlbCBOw7rDsWV6IDUxNDcsIFg1MDIxIEPDs3Jkb2Jh!5e0!3m2!1ses-419!2sar!4v1792302803545!5m2!1ses-419!2sar" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>'
+    embedUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3407.0837373853888!2d-64.24489662468648!3d-31.356668393366412!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9432994b4b766547%3A0x1b11e8a3245cca1f!2zQXYuIFJhZmFlbCBOw7rDsWV6IDUxNDcsIFg1MDIxIEPDs3Jkb2Jh!5e0!3m2!1ses-419!2sar!4v1792302803545!5m2!1ses-419!2sar'
   },
   {
     id: 2,
@@ -45,7 +45,7 @@ const SUCURSALES = [
     address: 'Recta Martinolli N° 8144',
     neighborhood: 'Argüello',
     phone: '03543405895',
-    orderUrl: '', // No tiene WhatsApp
+    orderUrl: '',
     hasWhatsapp: false,
     rating: '4.5',
     reviews: '387',
@@ -323,100 +323,4 @@ export default function ElChalchaWeb() {
                       <span className="font-bold">{sucursal.rating}</span>
                       <div className="flex text-yellow-400">
                         {[...Array(5)].map((_, i) => (
-                          <svg key={i} className="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
-                        ))}
-                      </div>
-                      <span className="text-gray-500 text-sm">({sucursal.reviews})</span>
-                    </div>
-
-                    <div className="space-y-3 font-lato text-gray-800 text-sm">
-                      <div className="flex items-start gap-3">
-                        <svg className="w-5 h-5 text-[#C8860A] shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
-                        <span>{sucursal.address}</span>
-                      </div>
-                    </div>
-                  </div>
-
-                  <a href={sucursal.mapUrl} target="_blank" rel="noreferrer" className="mt-6 inline-flex items-center justify-center w-full bg-gray-100 text-[#2C1810] py-2.5 rounded-xl font-bold font-lato border border-gray-300 hover:bg-gray-200 transition-colors">
-                    Cómo llegar <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" /></svg>
-                  </a>
-                </div>
-
-                <div className="h-64 sm:h-auto sm:w-1/2 bg-gray-200 flex flex-col">
-                  {/* Mapa Interactivo */}
-                  <iframe width="100%" height="100%" frameBorder="0" scrolling="no" marginHeight={0} marginWidth={0} src={sucursal.embedUrl} title={`Mapa de ${sucursal.name}`} className="w-full flex-grow min-h-[200px] opacity-90 hover:opacity-100 transition-opacity"></iframe>
-                  
-                  {/* Botones de acción debajo del mapa */}
-                  <div className="flex bg-[#2C1810]">
-                    <a href={`tel:${sucursal.phone}`} className={`${sucursal.hasWhatsapp ? 'w-1/2' : 'w-full'} py-3.5 text-center text-white font-bold font-lato hover:bg-red-700 border-r border-white/10 flex items-center justify-center gap-2 transition-colors`}>
-                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
-                      Llamar
-                    </a>
-                    {sucursal.hasWhatsapp && (
-                      <a href={sucursal.orderUrl} target="_blank" rel="noreferrer" className="w-1/2 py-3.5 text-center text-white font-bold font-lato hover:bg-[#20b858] flex items-center justify-center gap-2 transition-colors">
-                        <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 2C6.495 2 2 6.494 2 12.031c0 1.947.556 3.766 1.517 5.309L2.1 22l4.821-1.393c1.472.871 3.208 1.378 5.11 1.378 5.536 0 10.031-4.495 10.031-10.031S17.567 2 12.031 2zm0 18.257c-1.688 0-3.264-.476-4.607-1.303l-.33-.203-2.859.827.839-2.772-.216-.345A8.188 8.188 0 013.774 12.03c0-4.553 3.704-8.257 8.257-8.257 4.553 0 8.257 3.704 8.257 8.257 0 4.553-3.704 8.257-8.257 8.257zm4.526-6.177c-.248-.124-1.468-.724-1.696-.807-.228-.083-.394-.124-.56.124-.166.248-.642.807-.787.973-.145.166-.29.187-.538.063-.248-.124-1.047-.386-1.994-1.23-.737-.658-1.235-1.471-1.38-1.719-.145-.248-.016-.382.108-.505.112-.111.248-.29.373-.435.124-.145.166-.248.248-.414.083-.166.042-.311-.021-.435-.062-.124-.56-1.349-.767-1.847-.202-.486-.407-.42-.56-.427h-.477c-.166 0-.435.062-.663.311-.228.248-.87 0.85-.87 2.073 0 1.223.891 2.405 1.015 2.571.124.166 1.753 2.677 4.246 3.754.593.256 1.056.409 1.417.524.595.189 1.137.162 1.565.098.477-.071 1.468-.6 1.675-1.181.207-.581.207-1.078.145-1.181-.062-.103-.228-.166-.477-.29z" /></svg>
-                        Pedir
-                      </a>
-                    )}
-                  </div>
-                </div>
-
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* FRANQUICIAS */}
-      <section id="franquicias" className="py-24 px-4 sm:px-6 lg:px-8 max-w-3xl mx-auto">
-        <div className="bg-white rounded-3xl shadow-xl border border-[#C8860A]/30 p-8 sm:p-12">
-          <div className="text-center mb-8">
-            <h2 className="font-playfair text-3xl sm:text-4xl font-bold text-[#2C1810] mb-3">
-              Franquicias El Chalcha<sup className="text-base font-sans">®</sup>
-            </h2>
-            <p className="font-lato text-gray-600">Sumate al modelo de empanadas salteñas tradicionales con más de 30 años de experiencia.</p>
-          </div>
-          <form className="space-y-5 font-lato" onSubmit={(e) => { e.preventDefault(); alert('¡Gracias por tu interés! Nos comunicaremos a la brevedad.'); }}>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-              <div>
-                <label className="block text-xs font-bold text-[#2C1810] uppercase mb-1">Nombre Completo</label>
-                <input required type="text" className="w-full border border-gray-300 rounded-xl px-4 py-2.5 focus:ring-2 focus:ring-[#C8860A] outline-none" />
-              </div>
-              <div>
-                <label className="block text-xs font-bold text-[#2C1810] uppercase mb-1">Teléfono</label>
-                <input required type="tel" className="w-full border border-gray-300 rounded-xl px-4 py-2.5 focus:ring-2 focus:ring-[#C8860A] outline-none" />
-              </div>
-            </div>
-            <div>
-              <label className="block text-xs font-bold text-[#2C1810] uppercase mb-1">Email</label>
-              <input required type="email" className="w-full border border-gray-300 rounded-xl px-4 py-2.5 focus:ring-2 focus:ring-[#C8860A] outline-none" />
-            </div>
-            <div>
-              <label className="block text-xs font-bold text-[#2C1810] uppercase mb-1">Ciudad o Localidad de Interés</label>
-              <input required type="text" className="w-full border border-gray-300 rounded-xl px-4 py-2.5 focus:ring-2 focus:ring-[#C8860A] outline-none" />
-            </div>
-            <button type="submit" className="w-full bg-[#C8860A] text-white font-bold py-3.5 rounded-xl hover:bg-[#a66f08] transition-colors shadow-lg">Solicitar Información</button>
-          </form>
-        </div>
-      </section>
-
-      {/* FOOTER */}
-      <footer className="bg-[#1A0E09] text-[#F5EDD6]/70 py-12 border-t-4 border-[#C8860A] text-center px-4 font-lato">
-        <h2 className="font-pacifico text-4xl text-[#C8860A] mb-3">El Chalcha<sup className="text-lg">®</sup></h2>
-        <p className="text-sm max-w-md mx-auto mb-6">Empanadas salteñas tradicionales cortadas a cuchillo. Elaboradas artesanalmente en Córdoba desde 1990.</p>
-        <p className="text-xs text-[#F5EDD6]/50">&copy; {new Date().getFullYear()} El Chalcha Empanadas. Todos los derechos reservados.</p>
-      </footer>
-
-      {/* BOTÓN FLOTANTE WHATSAPP (Abre Modal) */}
-      <button 
-        onClick={() => setIsModalOpen(true)}
-        className="fixed bottom-6 right-6 bg-[#25D366] text-white p-4 rounded-full shadow-2xl hover:scale-110 transition-transform z-50 flex items-center justify-center" 
-        aria-label="Hacer un pedido"
-      >
-        <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M12.031 2C6.495 2 2 6.494 2 12.031c0 1.947.556 3.766 1.517 5.309L2.1 22l4.821-1.393c1.472.871 3.208 1.378 5.11 1.378 5.536 0 10.031-4.495 10.031-10.031S17.567 2 12.031 2zm0 18.257c-1.688 0-3.264-.476-4.607-1.303l-.33-.203-2.859.827.839-2.772-.216-.345A8.188 8.188 0 013.774 12.03c0-4.553 3.704-8.257 8.257-8.257 4.553 0 8.257 3.704 8.257 8.257 0 4.553-3.704 8.257-8.257 8.257zm4.526-6.177c-.248-.124-1.468-.724-1.696-.807-.228-.083-.394-.124-.56.124-.166.248-.642.807-.787.973-.145.166-.29.187-.538.063-.248-.124-1.047-.386-1.994-1.23-.737-.658-1.235-1.471-1.38-1.719-.145-.248-.016-.382.108-.505.112-.111.248-.29.373-.435.124-.145.166-.248.248-.414.083-.166.042-.311-.021-.435-.062-.124-.56-1.349-.767-1.847-.202-.486-.407-.42-.56-.427h-.477c-.166 0-.435.062-.663.311-.228.248-.87 0.85-.87 2.073 0 1.223.891 2.405 1.015 2.571.124.166 1.753 2.677 4.246 3.754.593.256 1.056.409 1.417.524.595.189 1.137.162 1.565.098.477-.071 1.468-.6 1.675-1.181.207-.581.207-1.078.145-1.181-.062-.103-.228-.166-.477-.29z" />
-        </svg>
-      </button>
-    </div>
-  );
-}
+                          <svg key={i} className="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-
