@@ -1,15 +1,14 @@
-```tsx
 'use client';
 
 import React, { useState } from 'react';
 
 const MENU_ITEMS = [
-  { id: 1, name: 'Salteña', description: 'Carne cortada a cuchillo, cebolla, huevo y cebolla de verdeo. Empanadas frescas, elaboradas diariamente, sin conservantes, sin congelar.', isPopular: true },
+  { id: 1, name: 'Salteña', description: 'Carne cortada a cuchillo, cebolla, huevo y cebolla de verdeo. Empanadas frescas, elaboradas diariamente, sin conservantes, sin congelar.', isPopular: false },
   { id: 2, name: 'Pollo', description: 'Pollo desmenuzado, huevo, cebolla, pimiento rojo y arvejas. Empanadas frescas, elaboradas diariamente, sin conservantes, sin congelar.', isPopular: false },
-  { id: 3, name: 'Jamón y queso', description: 'Queso mozzarella y cubos de jamón cocido. Empanadas frescas, elaboradas diariamente, sin conservantes, sin congelar.', isPopular: false },
+  { id: 3, name: 'Jamón y queso', description: 'Queso mozzarella y cubos de jamón cocido. Empanadas frescas, elaboradas diariamente, sin conservantes, sin congelar.', isPopular: true },
   { id: 4, name: 'Queso, cebolla y morrón', description: 'Queso pategrás, cebolla y morrón salteado. Empanadas frescas, elaboradas diariamente, sin conservantes, sin congelar.', isPopular: true },
   { id: 5, name: 'Criolla dulce', description: 'Carne picada, cebolla, huevo, cebolla de verdeo, pasas de uva y aceitunas verdes. Empanadas frescas, elaboradas diariamente, sin conservantes, sin congelar.', isPopular: true },
-  { id: 6, name: 'Cebolla a los 4 quesos', description: 'Queso reggianito, romanito, parmesano y sardo, cebolla cortada en juliana y huevo. Empanadas frescas, elaboradas diariamente, sin conservantes, sin congelar.', isPopular: false },
+  { id: 6, name: 'Cebolla a los 4 quesos', description: 'Queso reggianito, romanito, parmesano y sardo, cebolla cortada en juliana y huevo. Empanadas frescas, elaboradas diariamente, sin conservantes, sin congelar.', isPopular: true },
   { id: 7, name: 'Árabes', description: 'Carne picada cocida en jugo de limón, tomate triturado y cebolla. Empanadas frescas, elaboradas diariamente, sin conservantes, sin congelar.', isPopular: true },
 ];
 
@@ -421,5 +420,3 @@ export default function ElChalchaWeb() {
     </div>
   );
 }
-
-```
