@@ -71,7 +71,7 @@ const SUCURSALES = [
     address: 'Av. Pablo Richieri N° 3071',
     neighborhood: 'Barrio Jardín',
     phone: '3517013351',
-    orderUrl: 'https://wa.me/5493517013351?text=Hola!%20Quiero%20hacer%20un%20pedido',
+    orderUrl: 'https://pedix.app/el-chalcha-empanadas',
     hasWhatsapp: true,
     rating: '4.9',
     reviews: '50',
@@ -102,7 +102,7 @@ const SUCURSALES = [
     rating: '4.4',
     reviews: '43',
     mapUrl: 'https://www.google.com/maps/place/El+Chalcha/@-31.2952584,-64.2993418,17z/data=!3m1!4b1!4m6!3m5!1s0x94329d70d4dbc0fd:0x1e74ecc6e7a46a48!8m2!3d-31.295263!4d-64.2967669!16s%2Fg%2F11kr_346xd?entry=ttu&g_ep=EgoyMDI2MTAxMy4wIKXMDSoASAFQAw%3D%3D',
-    embedUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3409.307022164292!2d-64.30163781949598!3d-31.29525832416687!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94329d1b9df30617%3A0xf09ef1f069b7522b!2s25%20de%20Mayo%2025%2C%20X5105GGB%20Villa%20Allende%2C%20C%C3%B3rdoba%2C%20Argentina!5e0!3m2!1ses!2sus!4v1792306311319!5m2!1ses!2sus'
+    embedUrl: 'https://maps.google.com/maps?width=100%25&height=600&hl=es&q=25%20de%20Mayo%2025+(El%20Chalcha)&t=&z=15&ie=UTF8&iwloc=B&output=embed'
   },
   {
     id: 8,
@@ -116,6 +116,19 @@ const SUCURSALES = [
     reviews: '11',
     mapUrl: 'https://www.google.com/maps/place/El+Chalcha+el+talar/@-31.2545207,-64.2676539,17z/data=!3m1!4b1!4m6!3m5!1s0x943283dec706632f:0xf259ca9ae348b376!8m2!3d-31.2545253!4d-64.265079!16s%2Fg%2F11njmc1tpv?entry=ttu&g_ep=EgoyMDI2MTAxMy4wIKXMDSoASAFQAw%3D%3D',
     embedUrl: 'https://maps.google.com/maps?width=100%25&height=600&hl=es&q=Av.%20Mart%C3%ADn%20Tissera%203253+(El%20Chalcha%20el%20talar)&t=&z=15&ie=UTF8&iwloc=B&output=embed'
+  },
+  {
+    id: 9,
+    name: 'El Chalcha Docta',
+    address: 'MZN 84. Lote 1. Local 3.',
+    neighborhood: 'Docta',
+    phone: '3515527521',
+    orderUrl: 'https://wa.me/5493515527521?text=Hola!%20Quiero%20hacer%20un%20pedido',
+    hasWhatsapp: true,
+    rating: '5.0',
+    reviews: 'Nuevo',
+    mapUrl: 'https://maps.google.com/?q=Docta+Cordoba',
+    embedUrl: 'https://maps.google.com/maps?width=100%25&height=600&hl=es&q=Docta,%20C%C3%B3rdoba+(El%20Chalcha%20Docta)&t=&z=15&ie=UTF8&iwloc=B&output=embed'
   }
 ];
 
@@ -210,7 +223,7 @@ export default function ElChalchaWeb() {
       </nav>
 
       <section id="inicio" className="relative pt-20 min-h-[90vh] flex items-center justify-center text-center px-4 overflow-hidden">
-        <div className="absolute inset-0 z-0 bg-cover bg-center" style={{ backgroundImage: "url('./descarga.jpg')" }}>
+        <div className="absolute inset-0 z-0 bg-cover bg-center" style={{ backgroundImage: "url('/descarga.jpg')" }}>
           <div className="absolute inset-0 bg-gradient-to-b from-[#2C1810]/85 via-[#2C1810]/70 to-[#2C1810]/95" />
         </div>
         <div className="relative z-10 max-w-4xl mx-auto py-24">
@@ -318,7 +331,7 @@ export default function ElChalchaWeb() {
                 <div className="h-64 sm:h-auto sm:w-1/2 bg-gray-200 flex flex-col">
                   <iframe width="100%" height="100%" frameBorder="0" scrolling="no" marginHeight={0} marginWidth={0} src={sucursal.embedUrl} title={`Mapa de ${sucursal.name}`} className="w-full flex-grow min-h-[200px] opacity-90 hover:opacity-100 transition-opacity"></iframe>
                   <div className="flex bg-[#2C1810]">
-                    <a href={`tel:${sucursal.phone}`} className={`${sucursal.hasWhatsapp ? 'w-1/2' : 'w-full'} py-3.5 text-center text-white font-bold font-lato hover:bg-red-700 border-r border-white/10 flex items-center justify-center gap-2 transition-colors`}>
+                    <a href={`tel:${sucursal.phone}`} className={`${sucursal.hasWhatsapp ? 'w-1/2 border-r border-white/10' : 'w-full'} py-3.5 text-center text-white font-bold font-lato hover:bg-red-700 flex items-center justify-center gap-2 transition-colors`}>
                       <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
                       Llamar
                     </a>
